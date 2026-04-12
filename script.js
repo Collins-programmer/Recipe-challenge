@@ -2,8 +2,7 @@ const searchBtn = document.getElementById("search-button");
 const resultsDiv = document.getElementById("results-container");
 const recipeDetailsDiv = document.getElementById("recipe-details-container");
 searchBtn.addEventListener("click", () => {
-  const ingredient = document
-    .getElementById("search-input").value.toLowerCase();
+  const ingredient = document.getElementById("search-input").value.toLowerCase();
 
   if (!ingredient) {
     alert("Please enter an ingredient");
