@@ -35,6 +35,7 @@ function displayResults(meals) {
 
   meals.forEach(meal => {
     const mealDiv = document.createElement("div");
+    mealDiv.classList.add("recipe-card");
 
     mealDiv.innerHTML = `
       <h3>${meal.strMeal}</h3>
