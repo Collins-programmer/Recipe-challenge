@@ -18,6 +18,8 @@ function searchRecipes(ingredient) {
   fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`)
     .then(res => res.json())
     .then(data => {
+      localStorage.setItem('lastRecipeList', JSON.stringify(data.meals));
+      localStorage.removeItem('lastSelectedRecipe');
       displayResults(data.meals);
     })
     .catch(err => {
@@ -66,3 +68,16 @@ function displayRecipe(meal) {
     <p>${meal.strInstructions}</p>
   `;
 }
+
+window.onload = () => {
+  const savedList = localStorage.getItem('lastRecipeList');
+  const savedRecipe = localStorage.getItem('lastSelectedRecipe');
+
+  if (savedRecipe) {
+    displayRecipe(JSON.parse(savedRecipe));
+  }
+
+  if (savedList) {
+    displayResults(JSON.parse(savedList));
+  }
+};
