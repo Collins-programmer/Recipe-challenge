@@ -41,7 +41,7 @@ function displayResults(meals) {
 
     mealDiv.innerHTML = `
       <h3>${meal.strMeal}</h3>
-      <img src="${meal.strMealThumb}"  
+      <img src="${meal.strMealThumb}">  
       <br>
       <button onclick="getRecipeDetails('${meal.idMeal}')">
         View Recipe
